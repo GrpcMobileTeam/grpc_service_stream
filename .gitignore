@@ -1,7 +1,5 @@
 .vscode
-.idea
 *.exe
 *.dll
 *.so
 *.dylib
-.idea
