@@ -3,13 +3,15 @@ package main
 import (
 	"fmt"
 	"github.com/CBDlkl/gin"
+	"time"
+	"./logic"
 )
 
-var ctrip = new(Ctrip)
+var ctr = new(logic.Ctrip)
 
 func init() {
-	ctrip.login()
-	go ctrip.heartbeat()
+	ctr.Login()
+	go ctr.Heartbeat()
 	fmt.Println("init success ...")
 }
 
@@ -22,7 +24,13 @@ func setupRoter() *gin.Engine {
 	router := gin.Default()
 
 	router.POST("/login", func(context *gin.Context) {
-		context.String(200, ctrip.Authorization)
+		for {
+			if ctr.Authorization == "" {
+				ctr.Login()
+			}
+			time.Sleep(2 * time.Second)
+		}
+		context.String(200, ctr.Authorization)
 	})
 
 	return router

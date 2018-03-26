@@ -1,4 +1,4 @@
-package main
+package logic
 
 import (
 	"strings"
@@ -13,7 +13,7 @@ type Ctrip struct {
 	Authorization string
 }
 
-func (c *Ctrip) login() {
+func (c *Ctrip) Login() {
 	for i := 1; i < 4; i++ {
 		resp, err := http.Post("http://172.16.5.68:8080/v1/token", "application/x-www-form-urlencoded",
 			strings.NewReader(fmt.Sprintf("u=%s&p=%s", "ceshi1", "xc123456")))
@@ -42,7 +42,7 @@ func (c *Ctrip) login() {
 	}
 }
 
-func (c *Ctrip) heartbeat() {
+func (c *Ctrip) Heartbeat() {
 	for {
 		defer func() {
 			if err := recover(); err != nil {
@@ -70,7 +70,7 @@ func (c *Ctrip) heartbeat() {
 		defer resp.Body.Close()
 
 		if resp.StatusCode == 401 {
-			c.login()
+			c.Login()
 		}
 		body, _ := ioutil.ReadAll(resp.Body)
 
