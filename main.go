@@ -22,6 +22,8 @@ func main() {
 	pb.RegisterUserServer(s, &common.User{})
 	// Register reflection service on gRPC server.
 	reflection.Register(s)
+	log.Println("server running ...")
+
 	if err := s.Serve(lis); err != nil {
 		log.Fatalf("failed to serve: %v", err)
 	}
