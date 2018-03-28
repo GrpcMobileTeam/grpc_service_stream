@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package user;
+
+service User {
+    rpc SmsCode (SmsCodeInput) returns (SmsCodeOutput) {
+    }
+}
+
+enum SourceWayEnum {
+    NoSettingSourceWay = 0;
+    IOS = 20;
+    Android = 30;
+    Web = 40;
+}
+
+message BaseInput {
+    string AppVersion = 1;
+    SourceWayEnum SourceWayEnum = 2;
+    string TerminalExt = 3;
+    string IMEI = 4;
+    string OpenId = 5;
+}
+
+message SmsCodeInput {
+    BaseInput BaseInput = 1;
+    string Phone = 2;
+}
+
+message BaseOutput {
+    bool IsSuccess = 1;
+    string ErrorMessage = 2;
+    string ErrorCode = 3;
+}
+message SmsCodeOutput {
+    BaseOutput BaseOutput = 1;
+    string VerificationCode = 2;
+}
