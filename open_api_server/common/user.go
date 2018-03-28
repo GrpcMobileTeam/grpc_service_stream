@@ -1,7 +1,7 @@
 package common
 
 import (
-	pb "qyd/proto/common"
+	pb "qyd/model/common"
 	"golang.org/x/net/context"
 )
 

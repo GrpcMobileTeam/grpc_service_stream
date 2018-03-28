@@ -1,7 +1,7 @@
 package main
 
 import (
-	pb "qyd/proto/common"
+	pb "qyd/model/common"
 	"google.golang.org/grpc"
 	"net"
 	"qyd/open_api_server/common"

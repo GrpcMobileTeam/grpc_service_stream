@@ -7,7 +7,7 @@ import (
 
 	"google.golang.org/grpc"
 	"golang.org/x/net/context"
-	pb "qyd/proto/common"
+	pb "qyd/model/common"
 )
 
 const (
