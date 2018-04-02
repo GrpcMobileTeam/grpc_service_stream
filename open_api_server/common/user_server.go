@@ -18,7 +18,7 @@ func (u User) StreamSmsCode(rect *pb.SmsCodeInput, stream pb.User_StreamSmsCodeS
 		if err := stream.Send(&pb.SmsCodeOutput{VerificationCode: sendBody}); err != nil {
 			return err
 		}
-		fmt.Println(sendBody)
+		log.Print(sendBody)
 		time.Sleep(time.Second * 2)
 	}
 

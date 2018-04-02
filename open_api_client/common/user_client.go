@@ -12,7 +12,7 @@ import (
 )
 
 const (
-	address      = "localhost:50051"
+	address      = "172.16.14.52:50051"
 	defaultPhone = "13120168539"
 )
 
