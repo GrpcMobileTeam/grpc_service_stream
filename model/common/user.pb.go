@@ -9,9 +9,7 @@ It is generated from these files:
 	user.proto
 
 It has these top-level messages:
-	BaseInput
 	SmsCodeInput
-	BaseOutput
 	SmsCodeOutput
 */
 package user
@@ -36,97 +34,14 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
-type SourceWayEnum int32
-
-const (
-	SourceWayEnum_NoSettingSourceWay SourceWayEnum = 0
-	SourceWayEnum_IOS                SourceWayEnum = 20
-	SourceWayEnum_Android            SourceWayEnum = 30
-	SourceWayEnum_Web                SourceWayEnum = 40
-)
-
-var SourceWayEnum_name = map[int32]string{
-	0:  "NoSettingSourceWay",
-	20: "IOS",
-	30: "Android",
-	40: "Web",
-}
-var SourceWayEnum_value = map[string]int32{
-	"NoSettingSourceWay": 0,
-	"IOS":                20,
-	"Android":            30,
-	"Web":                40,
-}
-
-func (x SourceWayEnum) String() string {
-	return proto.EnumName(SourceWayEnum_name, int32(x))
-}
-func (SourceWayEnum) EnumDescriptor() ([]byte, []int) { return fileDescriptor0, []int{0} }
-
-type BaseInput struct {
-	AppVersion    string        `protobuf:"bytes,1,opt,name=AppVersion" json:"AppVersion,omitempty"`
-	SourceWayEnum SourceWayEnum `protobuf:"varint,2,opt,name=SourceWayEnum,enum=user.SourceWayEnum" json:"SourceWayEnum,omitempty"`
-	TerminalExt   string        `protobuf:"bytes,3,opt,name=TerminalExt" json:"TerminalExt,omitempty"`
-	IMEI          string        `protobuf:"bytes,4,opt,name=IMEI" json:"IMEI,omitempty"`
-	OpenId        string        `protobuf:"bytes,5,opt,name=OpenId" json:"OpenId,omitempty"`
-}
-
-func (m *BaseInput) Reset()                    { *m = BaseInput{} }
-func (m *BaseInput) String() string            { return proto.CompactTextString(m) }
-func (*BaseInput) ProtoMessage()               {}
-func (*BaseInput) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{0} }
-
-func (m *BaseInput) GetAppVersion() string {
-	if m != nil {
-		return m.AppVersion
-	}
-	return ""
-}
-
-func (m *BaseInput) GetSourceWayEnum() SourceWayEnum {
-	if m != nil {
-		return m.SourceWayEnum
-	}
-	return SourceWayEnum_NoSettingSourceWay
-}
-
-func (m *BaseInput) GetTerminalExt() string {
-	if m != nil {
-		return m.TerminalExt
-	}
-	return ""
-}
-
-func (m *BaseInput) GetIMEI() string {
-	if m != nil {
-		return m.IMEI
-	}
-	return ""
-}
-
-func (m *BaseInput) GetOpenId() string {
-	if m != nil {
-		return m.OpenId
-	}
-	return ""
-}
-
 type SmsCodeInput struct {
-	BaseInput *BaseInput `protobuf:"bytes,1,opt,name=BaseInput" json:"BaseInput,omitempty"`
-	Phone     string     `protobuf:"bytes,2,opt,name=Phone" json:"Phone,omitempty"`
+	Phone string `protobuf:"bytes,2,opt,name=Phone" json:"Phone,omitempty"`
 }
 
 func (m *SmsCodeInput) Reset()                    { *m = SmsCodeInput{} }
 func (m *SmsCodeInput) String() string            { return proto.CompactTextString(m) }
 func (*SmsCodeInput) ProtoMessage()               {}
-func (*SmsCodeInput) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{1} }
-
-func (m *SmsCodeInput) GetBaseInput() *BaseInput {
-	if m != nil {
-		return m.BaseInput
-	}
-	return nil
-}
+func (*SmsCodeInput) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{0} }
 
 func (m *SmsCodeInput) GetPhone() string {
 	if m != nil {
@@ -135,54 +50,14 @@ func (m *SmsCodeInput) GetPhone() string {
 	return ""
 }
 
-type BaseOutput struct {
-	IsSuccess    bool   `protobuf:"varint,1,opt,name=IsSuccess" json:"IsSuccess,omitempty"`
-	ErrorMessage string `protobuf:"bytes,2,opt,name=ErrorMessage" json:"ErrorMessage,omitempty"`
-	ErrorCode    string `protobuf:"bytes,3,opt,name=ErrorCode" json:"ErrorCode,omitempty"`
-}
-
-func (m *BaseOutput) Reset()                    { *m = BaseOutput{} }
-func (m *BaseOutput) String() string            { return proto.CompactTextString(m) }
-func (*BaseOutput) ProtoMessage()               {}
-func (*BaseOutput) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{2} }
-
-func (m *BaseOutput) GetIsSuccess() bool {
-	if m != nil {
-		return m.IsSuccess
-	}
-	return false
-}
-
-func (m *BaseOutput) GetErrorMessage() string {
-	if m != nil {
-		return m.ErrorMessage
-	}
-	return ""
-}
-
-func (m *BaseOutput) GetErrorCode() string {
-	if m != nil {
-		return m.ErrorCode
-	}
-	return ""
-}
-
 type SmsCodeOutput struct {
-	BaseOutput       *BaseOutput `protobuf:"bytes,1,opt,name=BaseOutput" json:"BaseOutput,omitempty"`
-	VerificationCode string      `protobuf:"bytes,2,opt,name=VerificationCode" json:"VerificationCode,omitempty"`
+	VerificationCode string `protobuf:"bytes,2,opt,name=VerificationCode" json:"VerificationCode,omitempty"`
 }
 
 func (m *SmsCodeOutput) Reset()                    { *m = SmsCodeOutput{} }
 func (m *SmsCodeOutput) String() string            { return proto.CompactTextString(m) }
 func (*SmsCodeOutput) ProtoMessage()               {}
-func (*SmsCodeOutput) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{3} }
-
-func (m *SmsCodeOutput) GetBaseOutput() *BaseOutput {
-	if m != nil {
-		return m.BaseOutput
-	}
-	return nil
-}
+func (*SmsCodeOutput) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{1} }
 
 func (m *SmsCodeOutput) GetVerificationCode() string {
 	if m != nil {
@@ -192,11 +67,8 @@ func (m *SmsCodeOutput) GetVerificationCode() string {
 }
 
 func init() {
-	proto.RegisterType((*BaseInput)(nil), "user.BaseInput")
 	proto.RegisterType((*SmsCodeInput)(nil), "user.SmsCodeInput")
-	proto.RegisterType((*BaseOutput)(nil), "user.BaseOutput")
 	proto.RegisterType((*SmsCodeOutput)(nil), "user.SmsCodeOutput")
-	proto.RegisterEnum("user.SourceWayEnum", SourceWayEnum_name, SourceWayEnum_value)
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -211,6 +83,7 @@ const _ = grpc.SupportPackageIsVersion4
 
 type UserClient interface {
 	SmsCode(ctx context.Context, in *SmsCodeInput, opts ...grpc.CallOption) (*SmsCodeOutput, error)
+	StreamSmsCode(ctx context.Context, in *SmsCodeInput, opts ...grpc.CallOption) (User_StreamSmsCodeClient, error)
 }
 
 type userClient struct {
@@ -230,10 +103,43 @@ func (c *userClient) SmsCode(ctx context.Context, in *SmsCodeInput, opts ...grpc
 	return out, nil
 }
 
+func (c *userClient) StreamSmsCode(ctx context.Context, in *SmsCodeInput, opts ...grpc.CallOption) (User_StreamSmsCodeClient, error) {
+	stream, err := grpc.NewClientStream(ctx, &_User_serviceDesc.Streams[0], c.cc, "/user.User/StreamSmsCode", opts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &userStreamSmsCodeClient{stream}
+	if err := x.ClientStream.SendMsg(in); err != nil {
+		return nil, err
+	}
+	if err := x.ClientStream.CloseSend(); err != nil {
+		return nil, err
+	}
+	return x, nil
+}
+
+type User_StreamSmsCodeClient interface {
+	Recv() (*SmsCodeOutput, error)
+	grpc.ClientStream
+}
+
+type userStreamSmsCodeClient struct {
+	grpc.ClientStream
+}
+
+func (x *userStreamSmsCodeClient) Recv() (*SmsCodeOutput, error) {
+	m := new(SmsCodeOutput)
+	if err := x.ClientStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
 // Server API for User service
 
 type UserServer interface {
 	SmsCode(context.Context, *SmsCodeInput) (*SmsCodeOutput, error)
+	StreamSmsCode(*SmsCodeInput, User_StreamSmsCodeServer) error
 }
 
 func RegisterUserServer(s *grpc.Server, srv UserServer) {
@@ -258,6 +164,27 @@ func _User_SmsCode_Handler(srv interface{}, ctx context.Context, dec func(interf
 	return interceptor(ctx, in, info, handler)
 }
 
+func _User_StreamSmsCode_Handler(srv interface{}, stream grpc.ServerStream) error {
+	m := new(SmsCodeInput)
+	if err := stream.RecvMsg(m); err != nil {
+		return err
+	}
+	return srv.(UserServer).StreamSmsCode(m, &userStreamSmsCodeServer{stream})
+}
+
+type User_StreamSmsCodeServer interface {
+	Send(*SmsCodeOutput) error
+	grpc.ServerStream
+}
+
+type userStreamSmsCodeServer struct {
+	grpc.ServerStream
+}
+
+func (x *userStreamSmsCodeServer) Send(m *SmsCodeOutput) error {
+	return x.ServerStream.SendMsg(m)
+}
+
 var _User_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "user.User",
 	HandlerType: (*UserServer)(nil),
@@ -267,35 +194,28 @@ var _User_serviceDesc = grpc.ServiceDesc{
 			Handler:    _User_SmsCode_Handler,
 		},
 	},
-	Streams:  []grpc.StreamDesc{},
+	Streams: []grpc.StreamDesc{
+		{
+			StreamName:    "StreamSmsCode",
+			Handler:       _User_StreamSmsCode_Handler,
+			ServerStreams: true,
+		},
+	},
 	Metadata: "user.proto",
 }
 
 func init() { proto.RegisterFile("user.proto", fileDescriptor0) }
 
 var fileDescriptor0 = []byte{
-	// 365 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0x64, 0x92, 0xc1, 0x6b, 0xea, 0x40,
-	0x10, 0xc6, 0xcd, 0x33, 0xea, 0xcb, 0xa8, 0xef, 0x85, 0x51, 0x24, 0x94, 0x22, 0x92, 0x93, 0x08,
-	0x95, 0x62, 0x7b, 0x29, 0xf4, 0x62, 0x4b, 0x0a, 0x39, 0x58, 0x4b, 0xd2, 0xea, 0x39, 0x26, 0x5b,
-	0x1b, 0x30, 0xbb, 0x61, 0x37, 0x81, 0xf6, 0xff, 0xea, 0x1f, 0x58, 0xb2, 0xd9, 0x6a, 0xd2, 0xde,
-	0x76, 0x7e, 0x33, 0x7c, 0xf3, 0x7d, 0xcc, 0x02, 0xe4, 0x82, 0xf0, 0x79, 0xca, 0x59, 0xc6, 0x50,
-	0x2f, 0xde, 0xf6, 0xa7, 0x06, 0xc6, 0x5d, 0x20, 0x88, 0x4b, 0xd3, 0x3c, 0xc3, 0x31, 0xc0, 0x32,
-	0x4d, 0x37, 0x84, 0x8b, 0x98, 0x51, 0x4b, 0x9b, 0x68, 0x53, 0xc3, 0xab, 0x10, 0xbc, 0x81, 0xbe,
-	0xcf, 0x72, 0x1e, 0x92, 0x6d, 0xf0, 0xe1, 0xd0, 0x3c, 0xb1, 0xfe, 0x4c, 0xb4, 0xe9, 0xbf, 0xc5,
-	0x60, 0x2e, 0x75, 0x6b, 0x2d, 0xaf, 0x3e, 0x89, 0x13, 0xe8, 0x3e, 0x13, 0x9e, 0xc4, 0x34, 0x38,
-	0x38, 0xef, 0x99, 0xd5, 0x94, 0xda, 0x55, 0x84, 0x08, 0xba, 0xbb, 0x72, 0x5c, 0x4b, 0x97, 0x2d,
-	0xf9, 0xc6, 0x11, 0xb4, 0xd7, 0x29, 0xa1, 0x6e, 0x64, 0xb5, 0x24, 0x55, 0x95, 0xed, 0x43, 0xcf,
-	0x4f, 0xc4, 0x3d, 0x8b, 0x94, 0xf1, 0x8b, 0x4a, 0x0a, 0xe9, 0xbb, 0xbb, 0xf8, 0x5f, 0x9a, 0x3a,
-	0x62, 0xaf, 0x92, 0x73, 0x08, 0xad, 0xa7, 0x37, 0x46, 0x89, 0xf4, 0x6f, 0x78, 0x65, 0x61, 0x1f,
-	0x00, 0x8a, 0x91, 0x75, 0x9e, 0x15, 0x33, 0xe7, 0x60, 0xb8, 0xc2, 0xcf, 0xc3, 0x90, 0x08, 0x21,
-	0x25, 0xff, 0x7a, 0x27, 0x80, 0x36, 0xf4, 0x1c, 0xce, 0x19, 0x5f, 0x11, 0x21, 0x82, 0xfd, 0xb7,
-	0x50, 0x8d, 0x15, 0x0a, 0xb2, 0x2e, 0x6c, 0xaa, 0xc0, 0x27, 0x60, 0x27, 0xd0, 0x57, 0x11, 0xd4,
-	0xc2, 0xcb, 0xea, 0x7a, 0x15, 0xc2, 0x3c, 0x85, 0x28, 0xb9, 0x57, 0xb5, 0x38, 0x03, 0x73, 0x43,
-	0x78, 0xfc, 0x1a, 0x87, 0x41, 0x16, 0x33, 0x2a, 0xf7, 0x94, 0x46, 0x7e, 0xf1, 0xd9, 0xc3, 0x8f,
-	0xd3, 0xe1, 0x08, 0xf0, 0x91, 0xf9, 0x24, 0xcb, 0x62, 0xba, 0x3f, 0x76, 0xcc, 0x06, 0x76, 0xa0,
-	0xe9, 0xae, 0x7d, 0x73, 0x88, 0x5d, 0xe8, 0x2c, 0x69, 0xc4, 0x59, 0x1c, 0x99, 0xe3, 0x82, 0x6e,
-	0xc9, 0xce, 0x9c, 0x2e, 0x6e, 0x41, 0x7f, 0x11, 0x84, 0xe3, 0x35, 0x74, 0x94, 0x7d, 0x44, 0x75,
-	0xfe, 0xca, 0x41, 0xce, 0x06, 0x35, 0x56, 0xfa, 0xb5, 0x1b, 0xbb, 0xb6, 0xfc, 0x7b, 0x57, 0x5f,
-	0x01, 0x00, 0x00, 0xff, 0xff, 0x5b, 0xb3, 0x51, 0xe8, 0x89, 0x02, 0x00, 0x00,
+	// 155 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0xe2, 0xe2, 0x2a, 0x2d, 0x4e, 0x2d,
+	0xd2, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x62, 0x01, 0xb1, 0x95, 0x54, 0xb8, 0x78, 0x82, 0x73,
+	0x8b, 0x9d, 0xf3, 0x53, 0x52, 0x3d, 0xf3, 0x0a, 0x4a, 0x4b, 0x84, 0x44, 0xb8, 0x58, 0x03, 0x32,
+	0xf2, 0xf3, 0x52, 0x25, 0x98, 0x14, 0x18, 0x35, 0x38, 0x83, 0x20, 0x1c, 0x25, 0x6b, 0x2e, 0x5e,
+	0xa8, 0x2a, 0xff, 0xd2, 0x12, 0x90, 0x32, 0x2d, 0x2e, 0x81, 0xb0, 0xd4, 0xa2, 0xcc, 0xb4, 0xcc,
+	0xe4, 0xc4, 0x92, 0xcc, 0xfc, 0x3c, 0x90, 0x0c, 0x54, 0x07, 0x86, 0xb8, 0x51, 0x15, 0x17, 0x4b,
+	0x68, 0x71, 0x6a, 0x91, 0x90, 0x09, 0x17, 0x3b, 0xd4, 0x10, 0x21, 0x21, 0x3d, 0xb0, 0x43, 0x90,
+	0x6d, 0x96, 0x12, 0x46, 0x11, 0x83, 0xd8, 0xa3, 0xc4, 0x20, 0x64, 0xc3, 0xc5, 0x1b, 0x5c, 0x52,
+	0x94, 0x9a, 0x98, 0x4b, 0xba, 0x5e, 0x03, 0xc6, 0x24, 0x36, 0xb0, 0x5f, 0x8d, 0x01, 0x01, 0x00,
+	0x00, 0xff, 0xff, 0xb9, 0xb3, 0x99, 0xde, 0xf9, 0x00, 0x00, 0x00,
 }
