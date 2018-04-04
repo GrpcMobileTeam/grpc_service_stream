@@ -1,4 +1,4 @@
-package: qyd
+package: grpc_service_stream
 import:
 - package: github.com/golang/protobuf
   subpackages:

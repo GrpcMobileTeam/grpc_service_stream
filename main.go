@@ -4,10 +4,10 @@ import (
 	"log"
 	"net"
 	"google.golang.org/grpc"
-	"qyd/open_api_server/common"
+	"grpc_service_stream/open_api_server/common"
 	"google.golang.org/grpc/reflection"
 
-	pb "qyd/model/common"
+	pb "grpc_service_stream/model/common"
 )
 
 const (

@@ -1,7 +1,7 @@
 package common
 
 import (
-	pb "qyd/model/common"
+	pb "grpc_service_stream/model/common"
 	"golang.org/x/net/context"
 	"log"
 	"fmt"

@@ -7,7 +7,7 @@ import (
 
 	"google.golang.org/grpc"
 	"golang.org/x/net/context"
-	pb "qyd/model/common"
+	pb "grpc_service_stream/model/common"
 	"io"
 )
 
